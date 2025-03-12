@@ -1,12 +1,12 @@
 name = input()
 PRINT("Is" + name + "correct?")
 
-Function ShowMessageDialog() As Void
+Function ShowMessageDialog(dialogTitle, dialogMessage) As Void
     port = CreateObject("roMessagePort")
     dialog = CreateObject("roMessageDialog")
     dialog.SetMessagePort(port)
-    dialog.SetTitle("[Message dialog title]")
-    dialog.SetText("[Message dialog text............]")
+    dialog.SetTitle(dialogTitle)
+    dialog.SetText(dialogMessage)
     dialog.AddButton(1, "[button text]")
     dialog.Show()
     while true
