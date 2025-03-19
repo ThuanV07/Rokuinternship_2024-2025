@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="titlescreen" extends="Scene">
+  <script type="text/brightscript" uri="pkg:/components/teststuff.brs" />
+  <children>
+    <Poster
+      id="titlescreenbg"
+      uri="pkg:/images/tscreenbg.png"
+      width="1280"
+      height="720"
+      visible="true"
+    />
+    <LayoutGroup id="mainLayout" translation="[0, 0]">
+      <Label
+        translation="[0, -260]"
+        id="AppTitle"
+        color="0x000000"
+        text="Language Leap"
+        horizAlign="center"
+      />
+      <LayoutGroup id="MainMenu" translation="[0, 0]" itemSpacing="20" horizAlign="center">
+        <LayoutGroup id="startgame" focusable="true" width="200" height="50">
+          <Poster
+            uri="pkg:/images/button_normal.png"
+            focusBitmapUri="pkg:/images/button_focused.png"
+            width="200"
+            height="50"
+          />
+          <Label
+            text="Start"
+            color="0x000000FF"
+            focusTextColor="0xFFFFFFFF"
+            width="200"
+            height="50"
+            horizAlign="center"
+            vertAlign="center"
+          />
+        </LayoutGroup>
+        <LayoutGroup id="settings" focusable="true" width="200" height="50">
+          <Poster
+            uri="pkg:/images/button_normal.png"
+            focusBitmapUri="pkg:/images/button_focused.png"
+            width="200"
+            height="50"
+          />
+          <Label
+            text="Settings"
+            color="0x000000FF"
+            focusTextColor="0xFFFFFFFF"
+            width="200"
+            height="50"
+            horizAlign="center"
+            vertAlign="center"
+          />
+        </LayoutGroup>
+        <LayoutGroup id="exitgame" focusable="true" width="200" height="50">
+          <Poster
+            uri="pkg:/images/button_normal.png"
+            focusBitmapUri="pkg:/images/button_focused.png"
+            width="200"
+            height="50"
+          />
+          <Label
+            text="Exit"
+            color="0x000000FF"
+            focusTextColor="0xFFFFFFFF"
+            width="200"
+            height="50"
+            horizAlign="center"
+            vertAlign="center"
+          />
+        </LayoutGroup>
+      </LayoutGroup>
+    </LayoutGroup>
+  </children>
+</component>
