@@ -15,12 +15,12 @@ Function Main() as void
     screen.SetAlphaEnable(true)
     codes = bslUniversalControlEventCodes()
     sprites = []
-    balls = []
-    balls[0] = bitmapset.animations.animated_3ball
-    balls[1] = bitmapset.animations.animated_4ball
-    balls[2] = bitmapset.animations.animated_5ball
-    balls[3] = bitmapset.animations.animated_6ball
-    balls[4] = bitmapset.animations.animated_8ball
+    boulders = []
+    boulders[0] = bitmapset.animations.animated_3ball
+    boulders[1] = bitmapset.animations.animated_4ball
+    boulders[2] = bitmapset.animations.animated_5ball
+    boulders[3] = bitmapset.animations.animated_6ball
+    boulders[4] = bitmapset.animations.animated_8ball
     
     spriteCount = 0
     sprites[0] = compositor.NewAnimatedSprite(Rnd(screenWidth-ballSize), Rnd(screenHeight-ballSize), balls[0])    
@@ -36,7 +36,7 @@ Function Main() as void
             id = event.GetInt()
             if ((id = codes.BUTTON_RIGHT_PRESSED) AND (spriteCount <= 5)) 'Add a sprite
                 spriteCount = spriteCount + 1
-                sprites[spriteCount] = compositor.NewAnimatedSprite(Rnd(screenWidth-ballSize), Rnd(screenHeight-ballSize), balls[spriteCount])                
+                sprites[spriteCount] = compositor.NewAnimatedSprite(Rnd(screenWidth-ballSize), Rnd(screenHeight-ballSize), boulders[spriteCount])                
                 sprites[spriteCount].SetData( {dx: Rnd(20)+10, dy: Rnd(20)+10, index: spriteCount} )
             else if (id = codes.BUTTON_LEFT_PRESSED)
                 wait(0, port)
