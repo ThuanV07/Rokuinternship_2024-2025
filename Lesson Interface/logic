@@ -1,1 +1,5 @@
-
+Lesson1vocab=createObject(“roArray”, 10, false)
+Lesson2vocab=createObject(“roArray”, 10, false)
+Lesson3vocab=createObject(“roArray”, 10, false)
+Lesson4vocab=createObject(“roArray”, 10, false)
+sub logic(list, correctlist)
