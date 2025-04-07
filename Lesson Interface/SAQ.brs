@@ -1,3 +1,3 @@
-function shortAnswerQuestion
+sub shortAnswerQuestion
 {
 }
