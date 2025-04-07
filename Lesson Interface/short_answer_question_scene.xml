@@ -1,10 +1,22 @@
 <component name="MySubScene" extends="Group">
   <children>
+    <Label 
+      id="prompt"
+      text=""
+      translation="[100, 100]"/>
     <TextField
       id="textBox"
       hintText="Type here..."
       width="400"
       translation="[50, 50]"
     />
+    <Button 
+      id="button"
+      text="Next"
+      translation="[100, 100]"/>
+    <Button 
+      id="button"
+      text="back"
+      translation="[100, 100]"/>
   </children>
 </component>
