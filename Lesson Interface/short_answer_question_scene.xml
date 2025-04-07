@@ -11,12 +11,12 @@
       translation="[50, 50]"
     />
     <Button 
-      id="Nextbutton"
+      id="nextButton"
       text="Next"
       translation="[100, 100]"/>
     <Button 
-      id="Backbutton"
-      text="back"
+      id="backButton"
+      text="Back"
       translation="[100, 100]"/>
   </children>
 </component>
