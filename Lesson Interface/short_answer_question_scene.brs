@@ -1,10 +1,11 @@
 sub init()
   m.textBox = m.top.findNode("textBox")
-  m.textBox.observeField("text", "onTextChanged")
   m.submitButton = m.top.findNode("submitButton")
 
   ' Set up button click observer
   m.submitButton.observeField("buttonSelected", "onSubmit")
+  m.submitButton.observeField("buttonSelected", "onSubmit")
+  m.textBox.observeField("text", "onTextChanged")
 end sub
 
 sub onTextChanged()
