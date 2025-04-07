@@ -11,11 +11,11 @@
       translation="[50, 50]"
     />
     <Button 
-      id="button"
+      id="Nextbutton"
       text="Next"
       translation="[100, 100]"/>
     <Button 
-      id="button"
+      id="Backbutton"
       text="back"
       translation="[100, 100]"/>
   </children>
