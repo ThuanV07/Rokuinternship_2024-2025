@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="textscreen" extends="Scene">
+  <children>
+<!-- Text version of the lesson for those that don't want to watch the video-->
+    <Rectangle
+        id="randrect"
+        width="500"
+        height="500"
+        translation="[100, 100]"
+        color="0xFF0000FF"/>
+
+  </children>
+
+  <script type="text/brightscript" uri="pkg:/components/videostuff/SimpleVideoScene.brs"/>
+</component>
