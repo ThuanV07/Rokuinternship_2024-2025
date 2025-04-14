@@ -1,5 +1,64 @@
-{"Lesson1":[
-  { "question":"Which one means “I”", "answer1":"Yo", "answer2":"En", "answer3":"es", "answer1":"en" },
-  { "question":"Which one means “I”", "answer1":"Yo", "answer2":"En", "answer3":"es", "answer1":"en" },
-  { "question":"Which one means “I”", "answer1":"Yo", "answer2":"En", "answer3":"es", "answer1":"en" },
-]}
+{
+  "Lesson1": [
+    { "question": "Which one means 'I'?", "options": ["Yo", "En", "es", "en"], "answer": "Yo" },
+    { "question": "Which one means 'am'?", "options": ["Yo", "En", "soy", "es"], "answer": "soy" },
+    { "question": "Which one means 'is'?", "options": ["Yo", "En", "soy", "es"], "answer": "es" },
+    { "question": "Which one means 'in'?", "options": ["Yo", "En", "soy", "es"], "answer": "En" },
+    { "question": "Which one means 'Spanish'?", "options": ["el", "Espanol", "ella", "yo"], "answer": "Espanol" },
+    { "question": "Which one means 'he'?", "options": ["el", "Espanol", "ella", "yo"], "answer": "el" },
+    { "question": "Which one means 'she'?", "options": ["el", "Espanol", "ella", "yo"], "answer": "ella" },
+    { "question": "How do you say 'I am in Spanish'?", "answer": "Yo soy en espanol" },
+    { "question": "How do you say 'He is in Spanish'?", "answer": "Ella es en espanol" },
+    { "question": "How do you say 'Ella es en espanol'?", "answer": "She is in Spanish" }
+  ],
+
+  "Lesson2": [
+    { "question": "Which country speaks Spanish?", "options": ["Portugal", "Mexico", "China", "Japan"], "answer": "Mexico" },
+    { "question": "Which country speaks Spanish?", "options": ["Spain", "Brazil", "India", "France"], "answer": "Spain" },
+    { "question": "Which country speaks Spanish?", "options": ["Venezuela", "Vietnam", "Russia", "Nigeria"], "answer": "Venezuela" },
+    { "question": "Which country doesn’t speak Spanish?", "options": ["Mexico", "Portugal", "Venezuela", "Spain"], "answer": "Portugal" },
+    { "question": "Which country doesn’t speak Spanish?", "options": ["Columbia", "El Salvador", "Equatorial Guinea", "Sweden"], "answer": "Sweden" },
+    { "question": "Which country doesn’t speak Spanish?", "options": ["Nicaragua", "Argentina", "Panama", "Singapore"], "answer": "Singapore" },
+    { "question": "Which is the only African country that speaks Spanish?", "options": ["Equatorial Guinea", "Madagascar", "Egypt", "Chad"], "answer": "Equatorial Guinea" },
+    { "question": "Name the only country that speaks Spanish in North America.", "answer": "Mexico" },
+    { "question": "Name the only country that speaks Spanish in Europe.", "answer": "Spain" },
+    { "question": "How many countries speak Spanish?", "answer": "21 countries" }
+  ],
+
+  "Lesson3": [
+    { "question": "What is the verb conjugation for 'I' with AR verbs?", "options": ["a", "as", "amos", "o"], "answer": "o" },
+    { "question": "What is the verb conjugation for 'you' with AR verbs?", "options": ["a", "as", "amos", "o"], "answer": "as" },
+    { "question": "What is the verb conjugation for 'he' with AR verbs?", "options": ["a", "as", "amos", "o"], "answer": "a" },
+    { "question": "What is the verb conjugation for 'we' with AR verbs?", "options": ["a", "as", "amos", "o"], "answer": "amos" },
+    { "question": "What is the verb conjugation for 'you' with ER/IR verbs?", "options": ["es", "an", "imos", "en"], "answer": "es" },
+    { "question": "What is the verb conjugation for 'them' with ER/IR verbs?", "options": ["e", "an", "imos", "en"], "answer": "en" },
+    { "question": "What is the verb conjugation for 'he' with ER/IR verbs?", "options": ["e", "an", "imos", "en"], "answer": "e" },
+    { "question": "Correct conjugation for 'them' using AR verbs?", "answer": "an" },
+    { "question": "Correct conjugation for 'we' using ER verbs?", "answer": "emos" },
+    { "question": "Correct conjugation for 'we' using IR verbs?", "answer": "imos" }
+  ],
+
+  "Lesson4": [
+    { "question": "How do you say 'to eat' in Spanish?", "options": ["comer", "beber", "tener", "ir"], "answer": "comer" },
+    { "question": "How do you say 'to drink' in Spanish?", "options": ["comer", "beber", "tener", "ir"], "answer": "beber" },
+    { "question": "How do you say 'milk' in Spanish?", "options": ["leche", "agua", "hamburguesa", "manzanas"], "answer": "leche" },
+    { "question": "How do you say 'water' in Spanish?", "options": ["leche", "agua", "hamburguesa", "manzanas"], "answer": "agua" },
+    { "question": "How do you say 'apple' in Spanish?", "options": ["leche", "agua", "hamburguesa", "manzanas"], "answer": "manzanas" },
+    { "question": "How do you say 'hamburguesa' in English?", "options": ["milk", "water", "hamburger", "apple"], "answer": "hamburger" },
+    { "question": "How do you say 'agua' in English?", "options": ["milk", "water", "hamburger", "apple"], "answer": "water" },
+    { "question": "Translate: 'I drink water' into Spanish.", "answer": "Yo bebo agua" },
+    { "question": "Translate: 'I eat apples' into Spanish.", "answer": "Yo como manzanas" },
+    { "question": "Translate: 'El come hamburguesas' into English.", "answer": "He eats hamburgers" }
+  ],
+
+  "Lesson5": [
+    { "question": "How do you say 'to clean' in Spanish?", "options": ["lavar", "limpiar", "mirar", "abrir"], "answer": "limpiar" },
+    { "question": "How do you say 'to open' in Spanish?", "options": ["lavar", "limpiar", "mirar", "abrir"], "answer": "abrir" },
+    { "question": "How do you say 'to wash' in Spanish?", "options": ["lavar", "limpiar", "mirar", "abrir"], "answer": "lavar" },
+    { "question": "How do you say 'to watch' in Spanish?", "options": ["lavar", "limpiar", "mirar", "abrir"], "answer": "mirar" },
+    { "question": "How do you say 'door' in Spanish?", "options": ["puerta", "platos", "peliculas", "cama"], "answer": "puerta" },
+    { "question": "How do you say 'plates' in Spanish?", "options": ["puerta", "platos", "peliculas", "cama"], "answer": "platos" },
+    { "question": "How do you say 'bed' in Spanish?", "options": ["puerta", "platos", "peliculas", "cama"], "answer": "cama" },
+    { "question": "Translate: 'I wash the plate' into Spanish.", "answer": "Yo llavo el plato" },
+    { "question": "Translate: 'I open the door' into Spanish.", "answer": "Yo abro la puerta" },
+    { "question": "Translate: 'El limpia la cama' into English.", "answer": "He cleans the bed" }
