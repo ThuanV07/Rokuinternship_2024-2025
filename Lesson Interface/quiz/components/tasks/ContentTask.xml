@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ContentTask" extends="Task">
+    <script type="text/brightscript" uri="pkg:/components/tasks/content.brs" />
+    <interface>
+        <field id="itemContent" type="node" />
+    </interface>
+</component>

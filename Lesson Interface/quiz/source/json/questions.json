@@ -1,0 +1,9 @@
+{
+    "questions": [
+    { "question": "Which one means 'I'?", "options": ["Yo", "En", "es", "en"], "answer": "Yo", "placement": 0 },
+    { "question": "Which one means 'am'?", "options": ["Yo", "En", "soy", "es"], "answer": "soy", "placement": 2 },
+    { "question": "Which one means 'is'?", "options": ["Yo", "En", "soy", "es"], "answer": "es", "placement": 3},
+    { "question": "Which one means 'in'?", "options": ["Yo", "En", "soy", "es"], "answer": "En", "placement": 1 },
+    { "question": "Which one means 'Spanish'?", "options": ["el", "Espanol", "ella", "yo"], "answer": "Espanol", "placement": 1 }
+    ]
+}

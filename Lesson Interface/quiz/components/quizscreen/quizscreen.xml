@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="quizscreen" extends="Scene">
+    <script type="text/brightscript" uri="pkg:/components/quizscreen/quizscreen.brs" />
+    <interface>
+        <!-- Specifies the content for the Grid THIS PART YOU NEED-->
+        <field id="itemContent" type="node" onChange="OnChangingQuestions"  />
+    
+    </interface>
+    <!--Label is for questions,  -->
+    <children>
+        <Label
+            id = "questiontitle"
+            translation = "[100, 80]"
+            width = "1000"
+            height = "100"
+            font = "Large"
+            HorizAlign = "left"
+        />
+
+        <ButtonGroup
+            id = "buttonGroup"
+            translation = "[650, 300]"
+            />
+        <Label
+            id = "feedbackLabel"
+            translation="[100,350]"
+            text=""
+            font="Medium"
+            HorizAlign="left"
+        />
+
+        <Label
+            id = "pointslabel"
+            translation="[100, 500]"
+            text="Points: "/>
+            
+    </children>
+</component>
