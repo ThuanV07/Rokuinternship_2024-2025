@@ -5,6 +5,8 @@ Function init()
   m.buttonGroup = m.top.findNode("buttonGroup")
   m.points = 0
   m.currentIndex = 0
+  'when changing between different options
+  m.selectedIndex = 0
   m.currentAnswer = invalid
   m.content = invalid
 
@@ -14,7 +16,7 @@ Function init()
   m.contentTask.observeField("itemContent", "onContentLoaded")
   m.contentTask.control = "RUN"
   'hard coded list for testing
-  m.list = [["thing", ["t", "r", "gg", "ggg"]], ["thing1", ["t1", "r1", "gg1", "ggg1"]], ["thing2", ["t2", "r2", "gg2", "ggg2"]]]
+  m.list = [["thing", ["t", "r", "gg", "ggg"], "gg"], ["thing1", ["t1", "r1", "gg1", "ggg1"], "ggg1"], ["thing2", ["t2", "r2", "gg2", "ggg2"], "r2" ]]
   'initialize the first question
   loadQuestion(m.currentIndex)
   m.buttonGroup.observeField("buttonSelected","onButtonSelected")
@@ -47,67 +49,68 @@ sub loadQuestion(index as Integer)
     'm.currentAnswer = questionNode.answer
 '  end if
 
-? "Questions successfully loaded"
-? m.list[index][0]
+? "Question successfully loaded"
+  m.selectedIndex = 0
+  'initialize questiontitle
+  
   m.questiontitle.text = m.list[index][0]
   m.questiontitle.width = "1000"
   m.questiontitle.height = "400"
-  'Initialize buttongroup components
+  'Initialize the answerchoices
   m.buttonGroup.buttons = m.list[index][1]
+  m.currentAnswer = m.list[index][2]
   m.buttonGroup.setFocus(true) 'menuing
   
 end sub
   
 
   ' This changes the questions from pressing left or right
-sub OnChangingQuestions(key as String, press as Boolean)
+function OnKeyEvent(key as String, press as Boolean)
   'When moving between different questions, change index left or right       
   if press AND m.content <> invalid then
-  '    totalQuestions = m.content.getChildCount()
+      totalQuestions = m.list.count()
       if key = "right" AND m.currentIndex < (totalQuestions - 1) then
         m.currentIndex = m.currentIndex + 1
         loadQuestion(m.currentIndex)
       else if key = "left" AND m.currentIndex > 0 then
         m.currentIndex = m.currentIndex - 1
         loadQuestion(m.currentIndex)
+      else if key = "up" AND m.currentIndex > 0 AND m.currentIndex < (totalQuestions - 1) then
+        m.currentIndex = m.currentIndex - 1
+      else if key = "down" AND m.currentIndex >= 0 AND m.currentIndex < (totalQuestions - 1) then
+        m.currentIndex = m.currentIndex + 1
       end if
     end if
 
-end sub
+  end function
 
 ' Handle button selection
 sub onButtonSelected()
   if m.buttonGroup.buttonSelected <> invalid then
-    ' Check if answer is correct based on your data structure
-    ' You may need to adjust this based on your JSON structure
     'Check the answer of the buttons
-    if m.buttonGroup.buttonSelected = 0
-      checkAnswer(m.buttonGroup.buttonSelected)
-    else if m.buttonGroup.buttonSelected = 1
-      checkAnswer(m.buttonGroup.buttonSelected)
-    else if m.buttonGroup.buttonSelected = 2
-      checkAnswer(m.buttonGroup.buttonSelected)
-    else if m.buttonGroup.buttonSelected = 3
-      checkAnswer(m.buttonGroup.buttonSelected)
+    if m.buttonGroup.buttonSelected = 0 or 1 or 2 or 3 then
+      checkAnswer()
     end if
   end if
 end sub
 
 ' Check if the selected answer is correct
-sub checkAnswer(selectedIndex as Integer)
+sub checkAnswer()
+  press = ""
+
  ' if m.content <> invalid AND m.currentAnswer <> invalid then
- '   selectedOption = m.buttonGroup.buttons[selectedIndex]
+    selectedOption = m.buttonGroup.buttons[m.selectedIndex]
+    ? m.buttonGroup.buttons[m.selectedIndex]
+
   'commented out the error checking for now  
     if selectedOption = m.currentAnswer then
-      m.points = m.points + 1
-      ? "Correct! Points: " + str(m.points)
+     ' m.points = m.points + 1
+    '  ? "Correct! Points: " + str(m.points)
       ' Update points display
-      pointsLabel = m.top.findNode("pointslabel")
-      if pointsLabel <> invalid then
-        pointsLabel.text = "Points: " + str(m.points)
-      end if
+   '   pointsLabel = m.top.findNode("pointslabel")
+      ? "Correct Answer"
     else
       ? "Incorrect answer. Correct answer was: " + m.currentAnswer
     end if
-  end if
+  
 end sub
