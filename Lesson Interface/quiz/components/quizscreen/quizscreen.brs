@@ -3,6 +3,8 @@
 Function init()
   m.questiontitle = m.top.findNode("questiontitle")
   m.buttonGroup = m.top.findNode("buttonGroup")
+  m.nextbutton = m.top.findNode("nextbutton")
+  m.backbutton = m.top.findNode("backbutton")
   m.points = 0
   m.currentIndex = 0
   'when changing between different options
@@ -38,16 +40,6 @@ end sub
 
 ' Load a specific question by index
 sub loadQuestion(index as Integer)
- ' if m.content <> invalid AND index >= 0 AND index < m.content.getChildCount() then
-  '  questionNode = m.content.getChild(index)
-    
-    ' Update question text and options
-    'm.questions.text = questionNode.question
-    'm.buttonGroup.buttons = questionNode.options
-    
-    ' Store current answer for checking
-    'm.currentAnswer = questionNode.answer
-'  end if
 
 ? "Question successfully loaded"
   m.selectedIndex = 0
@@ -65,22 +57,31 @@ end sub
   
 
   ' This changes the questions from pressing left or right
-function OnKeyEvent(key as String, press as Boolean)
+function onKeyEvent(key, press) as Boolean
   'When moving between different questions, change index left or right       
-  if press AND m.content <> invalid then
+
       totalQuestions = m.list.count()
-      if key = "right" AND m.currentIndex < (totalQuestions - 1) then
+      if key = "right" AND m.buttonGroup.setfocus(true) AND m.currentIndex < (totalQuestions - 1) then
+        m.nextbutton.setfocus(true)
+        if m.nextbutton.setfocus(true) and key = "left"
+          m.buttonGroup.setfocus(true)
+        end if
+        ? "eeeeeeeeeeee"
         m.currentIndex = m.currentIndex + 1
-        loadQuestion(m.currentIndex)
-      else if key = "left" AND m.currentIndex > 0 then
+      '  loadQuestion(m.currentIndex)
+      else if key = "left" AND m.buttonGroup.setfocus(true)
+        m.backbutton.setfocus(true)
+        ? "the penis"
         m.currentIndex = m.currentIndex - 1
-        loadQuestion(m.currentIndex)
-      else if key = "up" AND m.currentIndex > 0 AND m.currentIndex < (totalQuestions - 1) then
+      '  loadQuestion(m.currentIndex)
+      else if key = "up"
+        ? "fjhgvhgvjghvcjhg"
         m.currentIndex = m.currentIndex - 1
-      else if key = "down" AND m.currentIndex >= 0 AND m.currentIndex < (totalQuestions - 1) then
+      else if key = "down"
+        ? "bgksvvkhsvfkhjasvfhjk"
         m.currentIndex = m.currentIndex + 1
       end if
-    end if
+    return true
 
   end function
 
@@ -90,13 +91,13 @@ sub onButtonSelected()
     'Check the answer of the buttons
     if m.buttonGroup.buttonSelected = 0 or 1 or 2 or 3 then
       checkAnswer()
+
     end if
   end if
 end sub
 
 ' Check if the selected answer is correct
 sub checkAnswer()
-  press = ""
 
  ' if m.content <> invalid AND m.currentAnswer <> invalid then
     selectedOption = m.buttonGroup.buttons[m.selectedIndex]
