@@ -3,6 +3,7 @@
 <component name = "textscreen" extends= "Scene">
     <script type = "text/brightscript" uri = "pkg:/components/textscreen.brs"/>
     <children>
+        <Audio id="audio" />
         <Rectangle  
             id = "RectangleHolder"
             width = "1600"
