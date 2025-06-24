@@ -56,32 +56,32 @@ sub loadQuestion(index as Integer)
 end sub
   
 
-  ' This changes the questions from pressing left or right
+  ' Handle key presses for navigation
 function onKeyEvent(key, press) as Boolean
   'When moving between different questions, change index left or right       
 
       totalQuestions = m.list.count()
-      if key = "right" AND m.buttonGroup.setfocus(true) AND m.currentIndex < (totalQuestions - 1) then
-        m.nextbutton.setfocus(true)
-        if m.nextbutton.setfocus(true) and key = "left"
-          m.buttonGroup.setfocus(true)
-        end if
-        ? "eeeeeeeeeeee"
-        m.currentIndex = m.currentIndex + 1
-      '  loadQuestion(m.currentIndex)
-      else if key = "left" AND m.buttonGroup.setfocus(true)
-        m.backbutton.setfocus(true)
-        ? "the penis"
-        m.currentIndex = m.currentIndex - 1
-      '  loadQuestion(m.currentIndex)
-      else if key = "up"
-        ? "fjhgvhgvjghvcjhg"
-        m.currentIndex = m.currentIndex - 1
-      else if key = "down"
-        ? "bgksvvkhsvfkhjasvfhjk"
-        m.currentIndex = m.currentIndex + 1
+      ' When the buttongroup is selected and you want to move to the next or back button
+      if m.buttonGroup.setfocus(true)
+        if key = "right"
+          'set the focus to the next button to true
+          m.nextbutton.setfocus(true)
+          ? "eeeeeeeeeee" 'debug print
+        else if key = "left"
+          'set the focus to the back button to true
+          m.backbutton.setfocus(true)
+          ? "fire"
+        else if key = "down" AND m.selectedIndex < m.buttonGroup.buttons.count() - 1
+          m.selectedIndex = m.selectedIndex + 1
+          ? "down index: " + str(m.selectedIndex)
+        else if key = "up" AND m.selectedIndex > 0
+          m.selectedIndex = m.selectedIndex - 1 
+          ? "up index: " + str(m.selectedIndex)
       end if
-    return true
+    end if
+
+
+
 
   end function
 
