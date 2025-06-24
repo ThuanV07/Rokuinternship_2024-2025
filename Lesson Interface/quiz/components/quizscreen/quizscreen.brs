@@ -21,7 +21,10 @@ Function init()
   m.list = [["thing", ["t", "r", "gg", "ggg"], "gg"], ["thing1", ["t1", "r1", "gg1", "ggg1"], "ggg1"], ["thing2", ["t2", "r2", "gg2", "ggg2"], "r2" ]]
   'initialize the first question
   loadQuestion(m.currentIndex)
-  m.buttonGroup.observeField("buttonSelected","onButtonSelected")
+  m.buttonGroup.observeField("buttonSelected","onChoiceSelected")
+  m.nextbutton.observeField("buttonSelected","changeQuestions")
+  m.backbutton.observeField("buttonSelected","changeQuestions")
+
 end Function
 
 ' Handle when content is loaded from the task
@@ -86,16 +89,25 @@ function onKeyEvent(key, press) as Boolean
   end function
 
 ' Handle button selection
-sub onButtonSelected()
-  if m.buttonGroup.buttonSelected <> invalid then
+sub onChoiceSelected()
+  'if m.buttonGroup.buttonSelected <> invalid then
     'Check the answer of the buttons
-    if m.buttonGroup.buttonSelected = 0 or 1 or 2 or 3 then
-      checkAnswer()
-
+    if m.buttonGroup.buttonSelected = 0 or 1 or 2 or 3
+      checkAnswer()  
     end if
-  end if
+ ' end if
 end sub
 
+function changeQuestions()
+  if m.nextbutton.hasfocus() AND m.currentIndex < m.list.count() - 1
+    m.currentIndex = m.currentIndex + 1
+    loadQuestion(m.currentIndex mod m.list.count())
+  else if m.backbutton.hasfocus() AND m.currentIndex > 0
+    m.currentIndex = m.currentIndex - 1
+    loadQuestion((m.currentIndex + m.list.count()) mod m.list.count())
+  end if
+
+end function  
 ' Check if the selected answer is correct
 sub checkAnswer()
 
