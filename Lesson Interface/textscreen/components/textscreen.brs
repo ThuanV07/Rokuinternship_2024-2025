@@ -8,6 +8,11 @@ sub Init()
     ' initialize hard code list 
     m.firsthalftextlist = []
     loadTextScreen()
+    m.audio = CreateObject("roSGNode", "Audio")
+    m.audioContent = CreateObject("roSGNode", "ContentNode")
+    m.audioContent.url = "https://audio.jukehost.co.uk/bvK7WFCFaoBQiZhYfBPvMHumJ3nyXCUK" 
+    m.audio.content = m.audioContent
+    m.audio.control = "play"
 end sub
 
 ' Loads up the textscreen to be showing
