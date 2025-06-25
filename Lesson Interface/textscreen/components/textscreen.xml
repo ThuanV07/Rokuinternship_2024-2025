@@ -1,57 +1,106 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <component name = "textscreen" extends= "Scene">
     <script type = "text/brightscript" uri = "pkg:/components/textscreen.brs"/>
     <children>
         <Audio id="audio" />
-        <Rectangle  
+        <Poster 
             id = "RectangleHolder"
-            width = "1600"
-            height = "900"
-            HorizAlign = "center"
-            VertiAlign = "center"
-            color = "#9AADF7"
+            width = "1300"
+            height = "720"
+            uri = "pkg:/images/Lesson1background.png"
+            translation = "[0, 0]"
+
             >
-                    <children>
-                        <Label
-                            id = "firsthalftext"
-                            text = "In this lesson you learn about the fundamentals of Spanish where you learn the alphabet as well as basic spanish phrases and sentences. The spanish alphabet contains 27 letters. It has one more letter than the English alphabet being Ñ. Each letter is pronounced very differently where each pronunciation is shown below."
-                            width = "1000" 
-                            height = "200"
-                            wrap = "true" 
-                            font = "font:SmallSystemFont"
-                            color = "0xFFFFFFFF"
-                            translation = "[160, 20]"
-                        />
-                        <Poster
-                            id = "LessonImage"
-                            uri = "https://i.pinimg.com/736x/75/ce/16/75ce16b7d03e13c05f437f70cb16b7c1.jpg"
-                            HorizAlign = "center"
-                            width = "400" 
-                            height = "200" 
-                            translation = "[160, 150]"
-                        />
-                        <Label
-                            id = "secondhalftext"
-                            text = "Spanish contains much of the same words as the English alphabet where I is yo, in is en, is is es, and am is soy. There are also some other common words such as he is el, she is ella, and spanish is espanol. When you combine these words, they combine just like the english alphabet so if you wanted to say “I am in spanish” you would just translate the words where you would say “Yo soy en espanol.” In spanish there is also conjugation where you can’t say “El soy” in spanish, which is very similar to English as people don’t say “he am”. However people do say “he is” where in spanish it translate the same where you would say “El es”. Almost everything in spanish translate the same from sentence to sentence at the beginning so when doing your translations make sure to do just translate each word as you go by."
-                            width = "1000"
-                            wrap = "true"
-                            font = "font:SmallSystemFont"
-                            color = "0xFFFFFFFF"
-                            translation = "[150, 400]"
-                        />
-                        <Label
-                            id = "triviatext"
-                            text = "Did you know that spanish has conjugations just like english?
-                            Did you know that CH, LL, and RR are considered digraphs, not letters in spanish?
-                            Did you know that the spanish alphabet originates from the latin alphabet?"
-                            width = "1000"
-                            wrap = "true"
-                            font = "font:SmallSystemFont"
-                            color = "0xFFFFFFFF"
-                            translation = "[160, 600]"
-                        />
+        <children>
+                        
+            <Label
+                id = "firsthalftext"
+                text = "Lesson 1"
+                width = "1000" 
+                height = "200"
+                wrap = "true" 
+                font = "font:LargeSystemFont"
+                color = "#FFFFFF"
+                translation = "[50, 35]"
+            />
+            <Poster
+                id = "LessonImage"
+                uri = "https://i.pinimg.com/736x/75/ce/16/75ce16b7d03e13c05f437f70cb16b7c1.jpg"
+                width = "550"
+                height = "500"
+                translation = "[695, 50]"
+            />
+            <Scrollabletext
+                id = "scrolltext"
+                text = "Spanish Fundamentals: The Alphabet, Basic Phrases, and Conjugation
+
+Welcome to your first lesson in Spanish fundamentals! Here, we'll explore the Spanish alphabet, learn some essential phrases, and touch upon the important concept of verb conjugation.
+
+The Spanish Alphabet:
+• The Spanish alphabet officially contains 27 letters. It has one more letter than the English alphabet: Ñ (eñe). Each letter is pronounced very differently, and mastering these pronunciations is crucial for speaking the language correctly.
+
+Basic Spanish Vocabulary and Phrases:
+• Spanish contains some words that have clear equivalents to English, which can help in learning:
+    • I is yo
+    • In is en
+    • Is is es (from the verb &quot;ser,&quot; used for more permanent characteristics or identities)
+    • Am is soy (also from the verb &quot;ser&quot;)
+    
+Other useful things to learn:
+• He is él (note the accent mark)
+• She is ella
+• Spanish (the language) is español (lowercase 'e' unless it begins a sentence).
+• Forming Simple Sentences (and Where Caution is Needed)
+• When you combine these words, they form sentences, but it's important to understand that Spanish sentence structure is not always a direct word-for-word translation of English.
+
+Understanding Conjugation;
+In Spanish, there is also verb conjugation, which means verbs change their form to match the subject. This is similar to how we speak in English.
+
+• For example, in English, we don't say &quot;he am.&quot; Instead, we say &quot;he is.&quot; This is a form of conjugation.
+
+The same scenario applies in Spanish:
+
+You cannot say &quot;Él soy&quot; (which would be like saying &quot;he am&quot;).
+However, people do say &quot;he is,&quot; which translates to &quot;Él es&quot; in Spanish.
+Almost everything in Spanish translates, but not always word-for-word, especially when it comes to verbs. While you might find initial sentences seem to translate closely, it's essential to learn the correct verb forms and sentence structures as you go."
+                width = "620"
+                height = "460"
+                font = "font:SmallSystemFont"
+                color = "#FFFFFF"
+                translation = "[50, 75]"
+                scrollbarThumbBitmapUri = "pkg:/images/chicken.png"
+            />
+            <Label
+                id = "triviatext"
+                text = "Did you know that Spanish has conjugations just like English?
+Did you know that CH, LL, and RR are considered digraphs, not letters in Spanish?
+Did you know that the Spanish alphabet originates from the Latin alphabet?"
+                    width = "1000"
+                    wrap = "true"
+                    font = "font:SmallSystemFont"
+                    color = "#FFFFFF"
+                    translation = "[375, 590]"
+                />
+                <!-- Back Button image fix this later the white color bad and the outline weird -->
+                <Button
+                    id = "backbutton"
+                    height = "75"
+                    maxWidth = "300"
+                    translation = "[25, 590]"
+                    iconUri = "pkg:/images/button4p0.png"
+                    focusBitmapUri = "pkg:/images/button4p0.png"
+                />
+                <Label
+                    id = "backbuttontext"
+                    text = "Back Button"
+                    width = "280"
+                    height = "100"
+                    font = "font:SmallSystemFont"
+                    color = "#FFFFFF"
+                    translation = "[125, 620]"
+                />
             </children>
-        </Rectangle>
+        </Poster>
     </children>
 </component>
