@@ -5,12 +5,13 @@ Function init()
   m.buttonGroup = m.top.findNode("buttonGroup")
   m.nextbutton = m.top.findNode("nextbutton")
   m.backbutton = m.top.findNode("backbutton")
+  m.exitbutton = m.top.findNode("exitbutton")
+  m.answerprogress = m.top.findNode("answerprogress")
+  m.pointslabel = m.top.findNode("pointslabel")
   m.points = 0
   m.currentIndex = 0
   'when changing between different options
   m.selectedIndex = 0
-  m.currentAnswer = invalid
-  m.content = invalid
 
   
   ' Create and start the content task
@@ -18,28 +19,16 @@ Function init()
   m.contentTask.observeField("itemContent", "onContentLoaded")
   m.contentTask.control = "RUN"
   'hard coded list for testing
-  m.list = [["thing", ["t", "r", "gg", "ggg"], "gg"], ["thing1", ["t1", "r1", "gg1", "ggg1"], "ggg1"], ["thing2", ["t2", "r2", "gg2", "ggg2"], "r2" ]]
+  m.list = [["thing", ["t", "r", "gg", "ggg"], "gg", false], ["thing1", ["t1", "r1", "gg1", "ggg1"], "ggg1", false], ["thing2", ["t2", "r2", "gg2", "ggg2"], "r2", false ]]
   'initialize the first question
   loadQuestion(m.currentIndex)
+  m.answerprogress.text = str(m.currentIndex + 1) + "/" + str(m.list.count())
+
   m.buttonGroup.observeField("buttonSelected","onChoiceSelected")
   m.nextbutton.observeField("buttonSelected","changeQuestions")
   m.backbutton.observeField("buttonSelected","changeQuestions")
 
 end Function
-
-' Handle when content is loaded from the task
-sub onContentLoaded()
-  'm.content = m.contentTask.itemContent
-  'if m.content <> invalid AND m.content.getChildCount() > 0 then
-    ' Load first question
-  '  loadQuestion(0)
-  'else 
-  '  ? "Content invalid or no questions found"
-  'end if
-
-
-
-end sub
 
 ' Load a specific question by index
 sub loadQuestion(index as Integer)
@@ -55,6 +44,9 @@ sub loadQuestion(index as Integer)
   m.buttonGroup.buttons = m.list[index][1]
   m.currentAnswer = m.list[index][2]
   m.buttonGroup.setFocus(true) 'menuing
+  button = m.buttonGroup.getChild(0)
+  button.setFocus(true)
+
   
 end sub
   
@@ -63,7 +55,6 @@ end sub
 function onKeyEvent(key, press) as Boolean
   'When moving between different questions, change index left or right       
 
-      totalQuestions = m.list.count()
       ' When the buttongroup is selected and you want to move to the next or back button
       if m.buttonGroup.setfocus(true)
         if key = "right"
@@ -80,9 +71,11 @@ function onKeyEvent(key, press) as Boolean
         else if key = "up" AND m.selectedIndex > 0
           m.selectedIndex = m.selectedIndex - 1 
           ? "up index: " + str(m.selectedIndex)
+        else if key = "back"
+          m.exitbutton.setfocus(true)
       end if
+      return true
     end if
-
 
 
 
@@ -102,10 +95,13 @@ function changeQuestions()
   if m.nextbutton.hasfocus() AND m.currentIndex < m.list.count() - 1
     m.currentIndex = m.currentIndex + 1
     loadQuestion(m.currentIndex mod m.list.count())
+    
+
   else if m.backbutton.hasfocus() AND m.currentIndex > 0
     m.currentIndex = m.currentIndex - 1
     loadQuestion((m.currentIndex + m.list.count()) mod m.list.count())
   end if
+m.answerprogress.text = str(m.currentIndex + 1) + " / " + str(m.list.count())
 
 end function  
 ' Check if the selected answer is correct
@@ -116,8 +112,13 @@ sub checkAnswer()
     ? m.buttonGroup.buttons[m.selectedIndex]
 
   'commented out the error checking for now  
-    if selectedOption = m.currentAnswer then
-     ' m.points = m.points + 1
+    if selectedOption = m.currentAnswer  and m.list[m.currentIndex][3] = false
+
+      m.list[m.currentIndex][3] = true ' Mark question as answered
+      
+      m.points = m.points + 1
+      m.pointslabel.text = "Points: " + str(m.points)
+      
     '  ? "Correct! Points: " + str(m.points)
       ' Update points display
    '   pointsLabel = m.top.findNode("pointslabel")
