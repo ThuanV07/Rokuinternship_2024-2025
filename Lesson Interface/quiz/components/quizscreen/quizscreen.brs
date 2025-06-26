@@ -8,6 +8,7 @@ Function init()
   m.exitbutton = m.top.findNode("exitbutton")
   m.answerprogress = m.top.findNode("answerprogress")
   m.pointslabel = m.top.findNode("pointslabel")
+  m.answermessage = m.top.findNode("answermessage")
   m.points = 0
   m.currentIndex = 0
   'when changing between different options
@@ -27,6 +28,7 @@ Function init()
   m.buttonGroup.observeField("buttonSelected","onChoiceSelected")
   m.nextbutton.observeField("buttonSelected","changeQuestions")
   m.backbutton.observeField("buttonSelected","changeQuestions")
+
 
 end Function
 
@@ -118,6 +120,7 @@ sub checkAnswer()
       
       m.points = m.points + 1
       m.pointslabel.text = "Points: " + str(m.points)
+      m.answermessage.text = "Correct!" 
       
     '  ? "Correct! Points: " + str(m.points)
       ' Update points display
@@ -125,6 +128,19 @@ sub checkAnswer()
       ? "Correct Answer"
     else
       ? "Incorrect answer. Correct answer was: " + m.currentAnswer
+      m.answermessage.text = "Incorrect! Correct answer was: " + m.currentAnswer
+
     end if
   
 end sub
+
+function endscreen()
+  
+  m.questiontitle.text = "End of quiz! You scored " + str(m.points) + " out of " + str(m.list.count())
+  m.buttonGroup.visible = false
+  m.nextbutton.visible = false
+  m.backbutton.visible = false
+  m.answerprogress.visible = false
+  m.answermessage.visible = false
+
+end function
