@@ -3,24 +3,38 @@
     <script type="text/brightscript" uri="pkg:/components/quizscreen/quizscreen.brs" />
     <interface>
         <!-- Specifies the content for the Grid THIS PART YOU NEED-->
-        <field id="itemContent" type="node" onChange="OnChangingQuestions"  />
+        <field id="itemContent" type="node" />
     
     </interface>
     <!--Label is for questions,  -->
     <children>
         <Label
             id = "questiontitle"
-            translation = "[100, 80]"
-            width = "1000"
-            height = "100"
-            font = "Large"
-            HorizAlign = "left"
+            translation = "[300, 200]"
+            font = "font:LargeboldSystemFont"
         />
 
         <ButtonGroup
             id = "buttonGroup"
-            translation = "[650, 300]"
+            translation = "[750, 450]"
+            focusbutton = "1"
             />
+
+        <Button 
+            id = "nextbutton"
+            text = "next"
+            translation = "[1550, 1000]"
+        />
+        <Button 
+            id = "backbutton"
+            text = "back"
+            translation = "[0, 1000]"
+        />
+        <Button 
+            id = "Exitbutton"
+            text = "Exit"
+            translation = "[0, 0]"
+        />
         <Label
             id = "feedbackLabel"
             translation="[100,350]"
@@ -29,10 +43,24 @@
             HorizAlign="left"
         />
 
+        <label 
+            id = "correctanswer"
+            translation = "[300, 500]"
+        />
+
         <Label
             id = "pointslabel"
-            translation="[100, 500]"
-            text="Points: "/>
+            translation="[1700, 100]"
+            text="Points: 0"/>
             
+        <label
+            id="answerprogress"
+            translation="[1700, 50]"
+        />
+
+        <label
+            id = "answermessage"
+            translation = "[300, 600]"
+            />
     </children>
 </component>
