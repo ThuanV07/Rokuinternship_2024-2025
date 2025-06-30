@@ -5,12 +5,26 @@
 sub Init()
     ' set background color for scene. Applied only if backgroundUri has empty value
     m.top.backgroundColor = "0x662D91"
-    m.top.backgroundUri= "pkg:/images/background.jpg"
+    m.top.backgroundUri= "pkg:/images/backgroundday.png"
     m.loadingIndicator = m.top.FindNode("loadingIndicator") ' store loadingIndicator node to m
+    m.title = m.top.FindNode("title") ' store title node to m
+    m.mainmenu = m.top.FindNode("menubutton") ' store mainmenu node to m
+    m.mainmenu.setFocus(true) ' set focus to mainmenu
+    m.mainmenu.observeField("buttonSelected", "OnMainMenuSelected") ' observe selectedIndex field of mainmenu
     InitScreenStack()
-    ShowGridScreen()
-    RunContentTask() ' retrieving content
+    
 end sub
+
+function OnMainMenuSelected()
+    ' This function is called when the selectedIndex of mainmenu changes
+    ' It can be used to handle menu selection changes if needed
+    m.mainmenu.setFocus(false)
+    m.title.visible = false ' hide title when mainmenu is selected
+    m.mainmenu.visible = false
+    RunContentTask()
+    ShowGridScreen()
+    return false
+end function
 
 ' The OnKeyEvent() function receives remote control key events
 function OnkeyEvent(key as String, press as Boolean) as Boolean
