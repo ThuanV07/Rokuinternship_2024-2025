@@ -8,6 +8,7 @@
     <script type="text/brightscript" uri="UILogic/GridScreenLogic.brs" />
     <script type="text/brightscript" uri="UILogic/VideoPlayerLogic.brs" />
     <script type="text/brightscript" uri="UILogic/DetailsScreenLogic.brs" />
+    
     <children>
 
         <!-- LoadingIndicator should be visible only in case of waiting for content -->
@@ -21,6 +22,24 @@
             vertAlign="center"
             visible="false"
             font="font:MediumBoldSystemFont"
+        />
+        <label
+            id="title"
+            text="Main Menu"
+            width="1280"
+            height="50"
+            translation="[0, 20]"
+            horizAlign="center"
+            vertAlign="top"
+            font="font:MediumBoldSystemFont"
+        />
+        <Button
+            id="menuButton"
+            text="Menu"
+            height="50"
+            translation="[600, 600]"
+            horizAlign="left"
+            vertAlign="top"
         />
     </children>
 </component>
